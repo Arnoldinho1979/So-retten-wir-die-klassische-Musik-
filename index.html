@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klassik-Spiel</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        label { display: block; margin: 10px 0 5px; }
+        input, select { width: 100%; padding: 10px; margin-bottom: 20px; }
+        .result { font-weight: bold; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Die Klassik kann nur gerettet werden, wenn...</h1>
+        <form id="klassikForm">
+            <label for="geburtstag">Dein Geburtstag</label>
+            <select id="geburtstag">
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <!-- weitere Optionen hier -->
+            </select>
+            <label for="geburtsmonat">Dein Geburtsmonat</label>
+            <select id="geburtsmonat">
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <!-- weitere Optionen hier -->
+            </select>
+            <label for="vorname">Dein Vorname</label>
+            <select id="vorname">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <!-- weitere Optionen hier -->
+            </select>
+            <label for="nachname">Dein Nachname</label>
+            <select id="nachname">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <!-- weitere Optionen hier -->
+            </select>
+            <label for="geburtsjahr">Dein Geburtsjahr</label>
+            <select id="geburtsjahr">
+                <option value="1930">1930</option>
+                <option value="1931">1931</option>
+                <!-- weitere Optionen hier -->
+            </select>
+            <button type="button" onclick="generateResult()">Ergebnis anzeigen</button>
+        </form>
+        <div id="result" class="result"></div>
+    </div>
+    <script>
+        function generateResult() {
+            const geburtstag = document.getElementById('geburtstag').value;
+            const geburtsmonat = document.getElementById('geburtsmonat').value;
+            const vorname = document.getElementById('vorname').value;
+            const nachname = document.getElementById('nachname').value;
+            const geburtsjahr = document.getElementById('geburtsjahr').value;
+            
+            const personen = {
+                "01": "Thomas Gottschalk",
+                "02": "Axel Brüggemann",
+                // weitere Werte hier
+            };
+
+            const monate = {
+                "01": "in für die jungen Leute coolen Spielorten",
+                "02": "in weiten Teilen der Gesellschaft",
+                // weitere Werte hier
+            };
+
+            const vornamen = {
+                "A": "kritisch mit",
+                "B": "künstlerisch tiefschürfend mit",
+                // weitere Werte hier
+            };
+
+            const nachnamen = {
+                "A": "populären Stars von RTL und Co.",
+                "B": "Felix Lobrecht",
+                // weitere Werte hier
+            };
+
+            const jahre = {
+                "1930": "etwas gegen die Altersdiskriminierung im Konzertleben tut.",
+                "1931": "endlich Walter Kollo wiederentdeckt.",
+                // weitere Werte hier
+            };
+
+            const result = `Die Klassik kann nur gerettet werden, wenn ${personen[geburtstag]} ${monate[geburtsmonat]} ${vornamen[vorname]} ${nachnamen[nachname]} ${jahre[geburtsjahr]}`;
+            document.getElementById('result').innerHTML = result;
+        }
+    </script>
+</body>
+</html>
